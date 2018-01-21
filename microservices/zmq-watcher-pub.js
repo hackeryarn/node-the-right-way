@@ -6,7 +6,7 @@ const filename = process.argv[2];
 const publisher = zmq.socket('pub');
 
 fs.watch(filename, () => {
-    publisher.send(JSON.strigify({
+    publisher.send(JSON.stringify({
         type: 'changed',
         file: filename,
         timestamp: Date.now()
